@@ -1,118 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Perla Homes</title>
 
+<!-- Fonts and Icons -->
+ <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
 
-    <title>Perla Homes</title>
-    <link rel="stylesheet" href="main.css">
+<!-- Main CSS -->
+<link rel="stylesheet" href="main.css" />
 </head>
 <body>
-    <!-- Main Content Section -->
-    <div class="content-container">
-        <!-- Language Selector -->
-        <div id="google_translate_element" class="fade-in"></div>
-        <img src="images/perla logo site.png" alt="Perla Homes Logo" id="logo" class="fade-in" />
 
-        <h1 id="main-heading" class="fade-in" translate="no">
-            Welcome to <br> Naya   
-        </h1>
+<!-- Overlay for sidebar -->
+<div id="overlay" class="overlay" onclick="closeSidebar()"></div>
 
-        <!-- Buttons -->
-        <div class="button-container">
-            <div class="button-item fade-in">
-                <button class="round-btn" onclick="window.location.href='check_in.html'">
-                    <img src="images/Checkin.png" alt="Check-In">
-                </button>
-                <span>Check-In <br> </span>
-            </div>
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="closeSidebar()">&times;</button>
+    <a href="check_in.html">Check-In</a>
 
-            <div class="button-item fade-in">
-                <button class="round-btn" onclick="showWifiCodeBox()">
-                    <img src="images/wifi2.png" alt="Wifi">
-                </button>
-                <span>WiFi Code</span>
-            </div>
-            
-            <!-- Hidden Wifi Code Box -->
-            <div id="wifiCodeBox" style="display:none; padding: 10px; background-color: #0e0d0d; border: 1px solid #ccc; width: 200px; height: auto; max-width: 100%; text-align: center; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                <p> Network: <strong>Perla Homes</strong></p> <br>
-                <p> Password: <strong>Perla2023</strong></p>
-                <button onclick="hideWifiCodeBox()">EXIT</button>
-            </div>
-
-            <div class="button-item fade-in">
-                <button class="round-btn" onclick="showCodeBox()">
-                    <img src="images/Key lock Heavenmono.jpg" alt="Wifi">
-                </button>
-                <span>Code</span>
-            </div>
-            
-            <!-- Hidden Code Box -->
-            <div id="codeBox" style="display:none; padding: 10px; background-color: #0e0d0d; border: 1px solid #ccc; width: 200px; height: auto; max-width: 100%; text-align: center; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                <p>KeyCase: <strong>6785</strong></p>
-               
-                <button onclick="hideCodeBox()">EXIT</button>
-            </div>
-            
-            
-            <div class="button-item fade-in">
-                <a href="https://www.google.com/maps/place/%CE%9A%CF%81%CE%AE%CF%84%CE%B7%CF%82+74,+%CE%9A%CE%B1%CE%BB%CE%B1%CE%BC%CE%AC%CF%84%CE%B1+241+00/@37.0279802,22.1151777,15z/data=!3m1!4b1!4m6!3m5!1s0x1361b0a74c045017:0x2f97a5317fd74cfa!8m2!3d37.0279635!4d22.1254774!16s%2Fg%2F11nsrgsq4h?entry=ttu&g_ep=EgoyMDI1MDEyOC4wIKXMDSoASAFQAw%3D%3D">
-                    <img src="images/map.jpg" alt="Mobi" class="round-btn">
-                    <span>Map</span>
-                </a>
-            </div>
-            <div class="button-item fade-in">
-                <a href="https://messinia.mobi/el/article/katalumata/enoikiazomena-domatia/naya-enoikiazomena-diamerismata/9688">
-                    <img src="images/optiki-tautotita_2.jpg" alt="Mobi" class="round-btn">
-                    <span style="display:block;">Tourist<br>Guide</span>
-                </a>
-            </div>
-            
-            <div class="button-item fade-in">
-                <a href="contacts.html">
-                    <button class="round-btn">
-                        <img src="images/pngtree-circle-phone-call-icon-in-black-color-png-image_6596895.png" alt="Map">
-                    </button>
-                    <span>Contacts</span>
-                </a>
-            </div>
-        </div>
+    <div class="dropdown">
+    <button class="dropdown-btn" onclick="toggleDropdown('wifiDropdown')">Wi-Fi Code</button>
+    <div id="wifiDropdown" class="dropdown-content">
+        <p><strong>Network:</strong> <span class="copyable-text" id="wifiNetwork">Perla Homes</span>
+           <button class="copy-btn" onclick="copyText('wifiNetwork')">Copy</button>
+        </p>
+        <p><strong>Password:</strong> <span class="copyable-text" id="wifiPassword">laperla1</span>
+           <button class="copy-btn" onclick="copyText('wifiPassword')">Copy</button>
+        </p>
     </div>
+</div>
 
-    <!-- Footer -->
-     <div class="footer fade-in">
+<div class="dropdown">
+    <button class="dropdown-btn" onclick="toggleDropdown('codeDropdown')">Entrance Code</button>
+    <div id="codeDropdown" class="dropdown-content">
+        <p><strong>Code:</strong> <span class="copyable-text" id="entranceCode">6785</span>
+           
+        </p>
+    </div>
+</div>
+
+
+    <a href="https://maps.app.goo.gl/sSSqZXLDLsu995F89" target="_blank">Map</a>
+    <a href="https://messinia.mobi/el" target="_blank">Tourist Guide</a>
+    <a href="Taverns.html" target="_blank">Gastronomic Suggestions</a>
+    <a href="https://nauticholics.gr" target="_blank">Boat Cruises</a>
+    <a href="contacts.html">Contacts</a>
+</div>
+
+<!-- Sidebar open button -->
+<button class="open-btn" onclick="openSidebar()">☰ Menu</button>
+
+<!-- Language Selector -->
+<div id="google_translate_element"></div>
+
+<!-- Main Content -->
+<div class="content-container">
+    <img src="images/perla logo site.png" alt="Perla Homes Logo" id="logo" class="fade-in" />
+
+    <h1 translate="no" id="main-heading" class="fade-in">Welcome to <br>Nayia</h1>
+
+    <!-- Buttons -->
+    <div class="button-container">
+        <div class="button-item fade-in">
+            <button class="round-btn" onclick="window.location.href='check_in.html'">
+                <img src="images/check-in.png" alt="Check-In">
+            </button>
+            <span>Entry Instructions</span>
+        </div>
+
+    
+        <div class="button-item fade-in">
+            <button class="round-btn" onclick="showCodeBox()">
+                <img src="images/Master_lock.jpg" alt="Entrance Code">
+            </button>
+            <span>Entrance Code</span>
+        </div>
+
+        <div class="button-item fade-in">
+            <a href="https://maps.app.goo.gl/sSSqZXLDLsu995F89">
+                <img src="images/map.jpg" alt="Map" class="round-btn">
+                <span>Map</span>
+            </a>
+        </div>
+
+        <div class="button-item fade-in">
+            <a href="https://messinia.mobi/el">
+                <img src="images/optiki-tautotita_2.jpg" alt="Tourist Guide" class="round-btn">
+                <span>Local<br>Guide</span>
+            </a>
+        </div>
+
        
-        
-        <!-- Social Media Links -->
-        <div class="social-media">
-            <a href="https://www.perlahomes.gr" target="_blank">
-                <i class="fas fa-globe social-icon"></i>
-            </a>
-            <a href="https://www.facebook.com/PerlaHomesgr/" target="_blank">
-                <i class="fab fa-facebook social-icon"></i>
-            </a>
-            <a href="https://www.instagram.com/perla.homes/?hl=el" target="_blank">
-                <i class="fab fa-instagram social-icon"></i>
-            </a>
-        </div>
-        <p>&copy; 2025 Perla Homes. All rights reserved.</p>
+            <div class="button-item fade-in">
+                <button class="round-btn" onclick="window.location.href='Taverns.html'">
+                    <img src="images/Food_Foto.png" alt="Check-In">
+                </button>
+                <span>Gastronomic<br>Suggestions</span>
+            </div>
     </div>
+</div>
 
-    <script src="script.js"></script>
-    <script src="script.js"></script>
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,en,el,it,pt,ro,es,fr,ka,de,cs,hy,sq,ru', // Add more languages as needed
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- Popup Modals -->
+<div id="wifiCodeBox" class="popup-box">
+    <p><strong>Network:</strong>Perla Homes</p>
+    <p><strong>Password:</strong>laperla1</p>
+    <button onclick="hideWifiCodeBox()">EXIT</button>
+</div>
 
+<div id="codeBox" class="popup-box">
+    <p><strong>Entrance Code:</strong> 6785 </p>
+    <button onclick="hideCodeBox()">EXIT</button>
+</div>
+
+<!-- Footer -->
+<div class="footer fade-in">
+    <div class="social-media">
+        <a href="https://www.perlahomes.gr" target="_blank"><i class="fas fa-globe social-icon"></i></a>
+        <a href="https://www.facebook.com/PerlaHomesgr/" target="_blank"><i class="fab fa-facebook social-icon"></i></a>
+        <a href="https://www.instagram.com/perla.homes/?hl=el" target="_blank"><i class="fab fa-instagram social-icon"></i></a>
+    </div>
+    <p>&copy; 2025 Perla Homes. All rights reserved.</p>
+</div>
+
+<!-- Scripts -->
+<script>
+function openSidebar() {
+    document.getElementById("sidebar").style.width = "250px";
+    document.getElementById("overlay").style.display = "block";
+}
+function closeSidebar() {
+    document.getElementById("sidebar").style.width = "0";
+    document.getElementById("overlay").style.display = "none";
+}
+function toggleDropdown(id) {
+    const dropdown = document.getElementById(id);
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+}
+function showWifiCodeBox() {
+    document.getElementById('wifiCodeBox').style.display = 'block';
+}
+function hideWifiCodeBox() {
+    document.getElementById('wifiCodeBox').style.display = 'none';
+}
+function showCodeBox() {
+    document.getElementById('codeBox').style.display = 'block';
+}
+function hideCodeBox() {
+    document.getElementById('codeBox').style.display = 'none';
+}
+function copyText(elementId) {
+    const text = document.getElementById(elementId).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        alert('Copied to clipboard: ' + text);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}
+// Google Translate
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,el,it,pt,ro,es,fr,ka,de,cs,hy,sq,ru',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+}
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
+</html>
+
+
+

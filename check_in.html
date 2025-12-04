@@ -1,96 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perla Homes - Check-In</title>
 
-    <title>Perla Homes</title>
-    <link rel="stylesheet" href="style.css">
+  <!-- Fonts and Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Main Content Section -->
-    <div class="content-container">
-        <!-- Home Button -->
-        <a href="index.html" class="home-button fade-in">
-            <button>Home Page</button>
-        </a>
+  <!-- Overlay (closes sidebar when clicked) -->
+  <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
 
-        <!-- Language Selector -->
-        <div id="google_translate_element" class="fade-in"></div>
+  <!-- Sidebar Menu -->
+  <div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="closeSidebar()">&times;</button>
+    <a href="check_in.html">Check-In</a>
 
-        <!-- Logo -->
-        <img src="images/perla logo site.png" alt="Perla Homes Logo" id="logo" class="fade-in" />
+    <div class="dropdown">
+      <button class="dropdown-btn" onclick="toggleDropdown('wifiDropdown')">Wi-Fi Code</button>
+      <div id="wifiDropdown" class="dropdown-content">
+        <p><strong>WiFi Network:</strong>Perla Homes</p>
+        <p><strong>Password:</strong>laperla1</p>
+      </div>
+    </div>
 
-        <!-- Main Heading -->
-        <h1 id="main-heading" class="fade-in">Check-in <br> Instructions</h1>
+    <div class="dropdown">
+      <button class="dropdown-btn" onclick="toggleDropdown('codeDropdown')">Entrance Code</button>
+      <div id="codeDropdown" class="dropdown-content">
+        <p><strong>Code:</strong>6785</p>
+      </div>
+    </div>
 
-        <!-- Images and Content -->
-        <div class="content">
-           
-        
+    <a href="https://maps.app.goo.gl/sSSqZXLDLsu995F89" target="_blank">Map</a>
+    <a href="https://messinia.mobi/el" target="_blank">Tourist Guide</a>
+    <a href="Taverns.html" target="_blank">Gastronomic Suggestions</a>
+    <a href="https://nauticholics.gr" target="_blank">Boat Cruises</a>
+    <a href="contacts.html">Contacts</a>
+  </div>
 
-            <h2>When you arrive at the building, you’ll see this entrance.<br>
-                The accomondation is on the <br>2nd floor
-                </h2>
-            <img src="images/Krhths 74.png" id="key-lock" alt="Access Code">
-            
-  
+  <!-- Sidebar Open Button -->
+  <button class="open-btn" onclick="openSidebar()">☰ Menu</button>
 
-           
-            <h2>Entrance.</h2>
-            <img src="images/entrance naya.jpg" id="key-lock" alt="Access Code">
-          
+  <!-- Google Translate -->
+  <div id="google_translate_element"></div>
 
-            <h2>Key Lock.</h2>
-            <img src="images/kleidothkes krhths 2.jpg" id="key-lock" alt="Access Code">
-            <h2>Code: 6785</h2>
-        
-            
-            <img src="images/Tambela.jpg" id="key-lock" alt="Access Code">
-            
-        
-            <h2>Hot Water</h2>
-            <p>For hot water please turn on the water heater, it turns off automaticly after 40 minutes.</p>
-            <img src="images/Pinakas (1)ΝΑΥΑ.jpg" id="hot-water" alt="Access Code">
-        
-            <h2>Check-out</h2>
-            <h2>Check-out Time 11:00 AM.</h2>
-            <p>Please during check-out leave the keys on the table and close the door. <br>Thank you for trusting us and choosing one of our accommodations!</p>
-        
-            
-        </div>
+  <!-- Main Content -->
+  <div class="content-container">
+    <a href="index.html" class="home-button fade-in">
+      <button>Home Page</button>
+    </a>
+
+    <img src="images/perla logo site.png" alt="Perla Homes Logo" id="logo" class="fade-in" />
+    <h1 id="main-heading" class="fade-in">Check-in Instructions</h1>
+
+    <div class="content fade-in">
+      <h2>When you arrive you will see this entrance to the accommodation.</h2>
+      <img src="images/Krhths 74.png" alt="Entrance View" />
+       <img src="images/entrance naya.jpg" alt="Entrance View" />
+      
+
+      <h1>The Key Box Code is: <b>6785</b></h1>
+      <img src="images/kleidothkes krhths 2.jpg" alt="Entrance View" />
+
+      <h1>The accommodation is on the 2nd floor</h1>
+      <img src="images/Tambela.jpg" alt="Entrance View" />
+
+      
+
+     
+      <h2>Wi-Fi</h2>
+      <p>UserName: Perla Homes</p>
+      <p>Password: laperla1</p>
+      <img src="images/wifi2.png" alt="Wi-Fi" />
+
+      <h2>Hot Water</h2>
+      <p>For Hot water press the buton shown it will turn off automatically after 30-45min.</p><br>
+    
+      <img src="images/Pinakas (1)ΝΑΥΑ.jpg" alt="Electric Panel" />
+
+
+      <h2>Check-Out</h2>
+      <h2>Check-out Time: 11:00 AM</h2>
+      <p>Please leave the keys on the table and close the door behind you.  
+         Thank you for choosing Perla Homes!</p>
+    </div>
 
     <!-- Footer -->
     <div class="footer fade-in">
-       
-        
-        <!-- Social Media Links -->
-        <div class="social-media">
-            <a href="https://www.perlahomes.gr" target="_blank">
-                <i class="fas fa-globe social-icon"></i>
-            </a>
-            <a href="https://www.facebook.com/PerlaHomesgr/" target="_blank">
-                <i class="fab fa-facebook social-icon"></i>
-            </a>
-            <a href="https://www.instagram.com/perla.homes/?hl=el" target="_blank">
-                <i class="fab fa-instagram social-icon"></i>
-            </a>
-        </div>
-        <p>&copy; 2025 Perla Homes. All rights reserved.</p>
+      <div class="social-media">
+        <a href="https://www.facebook.com/PerlaHomesgr/" target="_blank"><i class="fab fa-facebook social-icon"></i></a>
+        <a href="https://www.instagram.com/perla.homes/" target="_blank"><i class="fab fa-instagram social-icon"></i></a>
+        <a href="https://www.perlahomes.gr" target="_blank"><i class="fas fa-home social-icon"></i></a>
+      </div>
+      <p>&copy; 2025 Perla Homes. All rights reserved.</p>
     </div>
+  </div>
 
-    <script src="script.js"></script>
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,el,it,pt,ro,es,fr,ka,de,cs,hy,sq,ru', // Add more languages as needed
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <!-- JavaScript -->
+  <script>
+    function openSidebar() {
+      document.getElementById("sidebar").style.width = "250px";
+      document.getElementById("overlay").style.display = "block";
+    }
+
+    function closeSidebar() {
+      document.getElementById("sidebar").style.width = "0";
+      document.getElementById("overlay").style.display = "none";
+    }
+
+    function toggleDropdown(id) {
+      const dropdown = document.getElementById(id);
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: "en",
+        includedLanguages: "en,el,it,pt,ro,es,fr,ka,de,cs,hy,sq,ru",
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      }, "google_translate_element");
+    }
+  </script>
+
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
+
