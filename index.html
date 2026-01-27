@@ -6,7 +6,7 @@
 <title>Perla Homes</title>
 
 <!-- Fonts and Icons -->
- <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
 
@@ -24,26 +24,23 @@
     <a href="check_in.html">Check-In</a>
 
     <div class="dropdown">
-    <button class="dropdown-btn" onclick="toggleDropdown('wifiDropdown')">Wi-Fi Code</button>
-    <div id="wifiDropdown" class="dropdown-content">
-        <p><strong>Network:</strong> <span class="copyable-text" id="wifiNetwork">Perla Homes</span>
-           <button class="copy-btn" onclick="copyText('wifiNetwork')">Copy</button>
-        </p>
-        <p><strong>Password:</strong> <span class="copyable-text" id="wifiPassword">laperla1</span>
-           <button class="copy-btn" onclick="copyText('wifiPassword')">Copy</button>
-        </p>
+        <button class="dropdown-btn" onclick="toggleDropdown('wifiDropdown')">Wi-Fi Code</button>
+        <div id="wifiDropdown" class="dropdown-content">
+            <p><strong>Network:</strong> <span class="copyable-text" id="wifiNetwork">Perla Homes</span>
+               <button class="copy-btn" onclick="copyText('wifiNetwork')">Copy</button>
+            </p>
+            <p><strong>Password:</strong> <span class="copyable-text" id="wifiPassword">Perla2023</span>
+               <button class="copy-btn" onclick="copyText('wifiPassword')">Copy</button>
+            </p>
+        </div>
     </div>
-</div>
 
-<div class="dropdown">
-    <button class="dropdown-btn" onclick="toggleDropdown('codeDropdown')">Entrance Code</button>
-    <div id="codeDropdown" class="dropdown-content">
-        <p><strong>Code:</strong> <span class="copyable-text" id="entranceCode">6785</span>
-           
-        </p>
+    <div class="dropdown">
+        <button class="dropdown-btn" onclick="toggleDropdown('codeDropdown')">Entrance Code</button>
+        <div id="codeDropdown" class="dropdown-content">
+            <p><strong>Code:</strong> <span class="copyable-text" id="entranceCode">6785</span></p>
+        </div>
     </div>
-</div>
-
 
     <a href="https://maps.app.goo.gl/sSSqZXLDLsu995F89" target="_blank">Map</a>
     <a href="https://messinia.mobi/el" target="_blank">Tourist Guide</a>
@@ -61,26 +58,10 @@
 <!-- Main Content -->
 <div class="content-container">
     <img src="images/perla logo site.png" alt="Perla Homes Logo" id="logo" class="fade-in" />
-
-    <h1 translate="no" id="main-heading" class="fade-in">Welcome to <br>Nayia</h1>
+    <h1 translate="no" id="main-heading" class="fade-in">Welcome to <br>Naya</h1>
 
     <!-- Buttons -->
     <div class="button-container">
-        <div class="button-item fade-in">
-            <button class="round-btn" onclick="window.location.href='check_in.html'">
-                <img src="images/check-in.png" alt="Check-In">
-            </button>
-            <span>Entry Instructions</span>
-        </div>
-
-    
-        <div class="button-item fade-in">
-            <button class="round-btn" onclick="showCodeBox()">
-                <img src="images/Master_lock.jpg" alt="Entrance Code">
-            </button>
-            <span>Entrance Code</span>
-        </div>
-
         <div class="button-item fade-in">
             <a href="https://maps.app.goo.gl/sSSqZXLDLsu995F89">
                 <img src="images/map.jpg" alt="Map" class="round-btn">
@@ -89,32 +70,85 @@
         </div>
 
         <div class="button-item fade-in">
+            <button class="round-btn" onclick="showCodeBox()">
+                <img src="images/check-in.png" alt="Instructions">
+            </button>
+            <span>Instructions</span>
+        </div>
+
+        <div class="button-item fade-in">
+            <button class="round-btn" onclick="showInfoBox()">
+                <img src="images/New_button.png" alt="Useful Info">
+            </button>
+            <span>Accommodation Guide</span>
+        </div>
+
+        <div class="button-item fade-in">
+            <button class="round-btn" onclick="window.location.href='Taverns.html'">
+                <img src="images/Food_Foto.png" alt="Gastronomic">
+            </button>
+            <span>Gastronomic<br>Suggestions</span>
+        </div>
+
+        <div class="button-item fade-in">
             <a href="https://messinia.mobi/el">
                 <img src="images/optiki-tautotita_2.jpg" alt="Tourist Guide" class="round-btn">
                 <span>Local<br>Guide</span>
             </a>
         </div>
-
-       
-            <div class="button-item fade-in">
-                <button class="round-btn" onclick="window.location.href='Taverns.html'">
-                    <img src="images/Food_Foto.png" alt="Check-In">
-                </button>
-                <span>Gastronomic<br>Suggestions</span>
-            </div>
     </div>
 </div>
 
-<!-- Popup Modals -->
+<!-- Popups -->
+
+<!-- Wi-Fi Popup -->
 <div id="wifiCodeBox" class="popup-box">
-    <p><strong>Network:</strong>Perla Homes</p>
-    <p><strong>Password:</strong>laperla1</p>
+    <p class="highlight-full"><strong>Wi-Fi Information</strong></p>
+    <div class="popup-content">
+        <p><strong>Network:</strong> Perla Homes</p>
+        <p><strong>Password:</strong> Perla2023</p>
+        <p>Instructions: Turn on Wi-Fi, select "Perla Homes", and enter the password above.</p>
+        <img src="images/wifi_icon.jpg" alt="Wi-Fi Instructions" class="popup-image">
+    </div>
     <button onclick="hideWifiCodeBox()">EXIT</button>
 </div>
 
+<!-- Entrance Code Popup -->
 <div id="codeBox" class="popup-box">
-    <p><strong>Entrance Code:</strong> 6785 </p>
+    <p class="highlight-full"><strong>Entrance Code:</strong>6785</p>
+    <div class="popup-content">
+        <p>When you arrive you will see this entrance to the accommodation.</p>
+        <img src="images/Krhths 74.png" alt="Amaris Front" class="popup-image">
+        <img src="images/entrance naya.jpg" alt="Entrance Side" class="popup-image">
+         <p class="highlight-full"><strong>Entrance Code:</strong> 6785</p>
+        <img src="images/kleidothkes 2 Naya.jpg" alt="Entrance View" class="popup-image">
+        <p>The accommodation is located on the 2nd floor.</p>
+        <img src="images/Tambela_naya.jpg" alt="Entrance View" class="popup-image">
+    </div>
     <button onclick="hideCodeBox()">EXIT</button>
+</div>
+
+<!-- Useful Information Popup -->
+<div id="infoBox" class="popup-box">
+    <p class="highlight-full"><strong>Useful Information</strong></p>
+    <div class="popup-content">
+        <p>Here are some important details for your stay:</p>
+        <p class="highlight-full"><strong>Wi-Fi</strong></p>
+    <p translate="no">UserName: Perla Homes</p>
+    <p translate="no">Password: Perla2023</p>
+        <p class="highlight-full"><strong>Hot Water</strong></p>
+      <p>For Hot water press the buton shown it will turn off automatically after 30-45min.</p>
+        <img src="images/Pinakas (1)ΝΑΥΑ.jpg" alt="Useful Info 1" class="popup-image">
+
+        <p translate="no" class="highlight-full"><strong>Check-Out</strong></p>
+   
+        <p>- Check-out time: 11:00</p>
+        <p> Please leave the keys on the table and close the door behind you. Thank you for choosing Perla Homes!</p>
+
+    
+
+    </div>
+    <button onclick="hideInfoBox()">EXIT</button>
 </div>
 
 <!-- Footer -->
@@ -128,51 +162,7 @@
 </div>
 
 <!-- Scripts -->
-<script>
-function openSidebar() {
-    document.getElementById("sidebar").style.width = "250px";
-    document.getElementById("overlay").style.display = "block";
-}
-function closeSidebar() {
-    document.getElementById("sidebar").style.width = "0";
-    document.getElementById("overlay").style.display = "none";
-}
-function toggleDropdown(id) {
-    const dropdown = document.getElementById(id);
-    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-}
-function showWifiCodeBox() {
-    document.getElementById('wifiCodeBox').style.display = 'block';
-}
-function hideWifiCodeBox() {
-    document.getElementById('wifiCodeBox').style.display = 'none';
-}
-function showCodeBox() {
-    document.getElementById('codeBox').style.display = 'block';
-}
-function hideCodeBox() {
-    document.getElementById('codeBox').style.display = 'none';
-}
-function copyText(elementId) {
-    const text = document.getElementById(elementId).innerText;
-    navigator.clipboard.writeText(text).then(() => {
-        alert('Copied to clipboard: ' + text);
-    }).catch(err => {
-        console.error('Failed to copy: ', err);
-    });
-}
-// Google Translate
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,el,it,pt,ro,es,fr,ka,de,cs,hy,sq,ru',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-}
-</script>
+<script src="script.js"></script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
-
-
-

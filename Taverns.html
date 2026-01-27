@@ -9,7 +9,15 @@
 </head>
 
 <body>
+  <!-- Home Page Button -->
+  <div class="content-container">
+      <a href="index.html" class="home-button fade-in">
+          <button>Home Page</button>
+      </a>
+  </div>
+
   <header class="hero">
+    <div id="google_translate_element"></div>
     <h1>Gastronomic <br> Suggestions</h1>
     <p>Discover the best<br> restaurants, bars , kafe and taverns in Kalamata!</p>
   </header>
@@ -155,5 +163,31 @@
     <p>Enjoy your stay!</p>
   </footer>
 
+  <script>
+function goBack() {
+    window.history.back(); // goes to the previous page
+}
+
+</script>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,el',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    },
+    'google_translate_element'
+  );
+}
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
